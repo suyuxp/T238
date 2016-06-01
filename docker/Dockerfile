@@ -1,22 +1,19 @@
-FROM node:5-wheezy
+FROM ruby
 
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 
 WORKDIR /opt
-COPY package.json ./package.json
-RUN npm install cnpm -g --registry=https://registry.npm.taobao.org && cnpm install
 
-COPY assets ./assets
-COPY tasks ./tasks
+ADD Gemfile Gemfile
+RUN bundle install
 
-COPY api ./api
-COPY views ./views
-COPY config ./config
+ADD lib lib
+ADD config config
+ADD log/.git_keep log/.git_keep
 
-COPY app.js ./app.js
+ADD app.rb app.rb
+ADD config.ru config.ru
 
-COPY docker/connections.js ./config/connections.js
-
-EXPOSE 1337
-CMD npm start
+EXPOSE 3000
+CMD puma -p 3000
