@@ -8,10 +8,10 @@ WORKDIR /opt
 ADD Gemfile Gemfile
 RUN bundle install
 
-ADD lib lib
 ADD config config
 ADD log/.git_keep log/.git_keep
 
+COPY upload upload
 ADD app.rb app.rb
 ADD config.ru config.ru
 

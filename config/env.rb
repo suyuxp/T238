@@ -3,10 +3,10 @@
 # ----------------------------------------------------
 
 # 生成加密字符串
-FILE_PATH = "/opt/upload/"
+FILE_PATH = "/opt/upload"
 
 # 默认有效期为 300 秒
-FILES = [
+UPLOAD_FILES = [
   {
     "id": 1,
     "name": "云桌面开户申请表",
