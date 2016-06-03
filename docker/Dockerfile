@@ -15,5 +15,6 @@ COPY upload upload
 ADD app.rb app.rb
 ADD config.ru config.ru
 
-EXPOSE 3000
-CMD puma -p 3000
+EXPOSE 1337
+CMD puma -p 1337
+

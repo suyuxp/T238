@@ -29,7 +29,7 @@ module CLOAP
     get "/documentation/:id/download" do
       row = UPLOAD_FILES[params[:id]]
       content_type "application/octet-stream"
-      header['Content-Disposition'] = "attachment; filename=#{row[:name]}.pdf"
+      header['Content-Disposition'] = "attachment; filename=#{row[:path]}"
       env['api.format'] = :binary
       File.open("#{FILE_PATH}/#{row[:path]}").read
       # File.binread("#{FILE_PATH}/#{row[:path]}")
